@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Multilingual executive resume - Retail Credit Risk & Consumer Banking" />
+  <title>Executive Resume | Retail Credit Risk & Consumer Banking</title>
+  <style>
+    :root{
+      --bg:#edf7ff;
+      --paper:#ffffff;
+      --primary:#123f6d;
+      --primary-2:#2f6fa8;
+      --accent:#75b9e8;
+      --soft:#dff1ff;
+      --line:#c9e4f7;
+      --text:#17324a;
+      --muted:#647b8f;
+      --shadow:0 20px 55px rgba(25,73,112,.15);
+      --radius:24px;
+    }
+    [data-theme="deep"]{
+      --bg:#e9f1f8;
+      --paper:#ffffff;
+      --primary:#0b2f53;
+      --primary-2:#194f7c;
+      --accent:#4e8fc2;
+      --soft:#d7e7f4;
+      --line:#bfd5e7;
+      --text:#122b40;
+      --muted:#61778a;
+      --shadow:0 20px 55px rgba(10,47,83,.18);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, "Noto Sans TC", "Noto Sans JP", "Noto Sans KR",
+        "Microsoft JhengHei", "PingFang TC", "Yu Gothic", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(117,185,232,.25), transparent 28%),
+        linear-gradient(135deg,var(--bg),#f9fcff 55%,var(--soft));
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    .toolbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(255,255,255,.82);
+      border-bottom:1px solid rgba(180,210,232,.65);
+      padding:12px 18px;
+    }
+
+    .toolbar-inner{
+      max-width:1180px;
+      margin:auto;
+      display:flex;
+      gap:10px;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .brand-mini{
+      font-weight:800;
+      color:var(--primary);
+      letter-spacing:.03em;
+      font-size:.95rem;
+    }
+
+    .controls{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    select,button{
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--primary);
+      border-radius:999px;
+      padding:9px 13px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    select:hover,button:hover{
+      transform:translateY(-1px);
+      box-shadow:0 7px 20px rgba(43,92,128,.12);
+    }
+
+    .page{
+      max-width:1180px;
+      margin:36px auto;
+      padding:0 18px 40px;
+    }
+
+    .resume{
+      background:var(--paper);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:310px 1fr;
+      min-height:900px;
+      border:1px solid rgba(194,222,241,.75);
+    }
+
+    .sidebar{
+      background:
+        linear-gradient(165deg,var(--primary),var(--primary-2) 58%,#5fa9dc 145%);
+      color:#fff;
+      padding:42px 32px;
+      position:relative;
+    }
+    .sidebar:after{
+      content:"";
+      position:absolute;
+      width:190px;height:190px;
+      border-radius:50%;
+      border:30px solid rgba(255,255,255,.05);
+      right:-95px;bottom:60px;
+    }
+
+    .monogram{
+      width:92px;
+      height:92px;
+      border-radius:26px;
+      display:grid;
+      place-items:center;
+      font-size:2rem;
+      font-weight:900;
+      letter-spacing:.05em;
+      background:rgba(255,255,255,.15);
+      border:1px solid rgba(255,255,255,.24);
+      box-shadow:inset 0 0 30px rgba(255,255,255,.08);
+      margin-bottom:22px;
+    }
+
+    .name{
+      font-size:1.8rem;
+      margin:0 0 7px;
+      line-height:1.15;
+    }
+    .role{
+      font-size:.96rem;
+      line-height:1.55;
+      color:#d9efff;
+      margin:0 0 26px;
+      font-weight:650;
+    }
+
+    .side-section{
+      margin-top:28px;
+      position:relative;
+      z-index:2;
+    }
+    .side-section h3{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:#bfe7ff;
+      margin:0 0 12px;
+    }
+    .contact-item,.lang-item{
+      font-size:.86rem;
+      line-height:1.65;
+      margin:5px 0;
+      color:#f6fbff;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+    }
+    .chip{
+      padding:6px 9px;
+      border-radius:10px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.15);
+      font-size:.76rem;
+      line-height:1.2;
+    }
+
+    .main{
+      padding:42px 48px 38px;
+      background:
+        linear-gradient(180deg,rgba(223,241,255,.35),transparent 220px),
+        #fff;
+    }
+
+    .hero{
+      border-bottom:1px solid var(--line);
+      padding-bottom:22px;
+      margin-bottom:24px;
+    }
+    .eyebrow{
+      color:var(--primary-2);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.75rem;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+    .headline{
+      font-size:2.2rem;
+      line-height:1.1;
+      margin:0 0 13px;
+      color:var(--primary);
+      letter-spacing:-.03em;
+    }
+    .summary{
+      font-size:.96rem;
+      line-height:1.78;
+      margin:0;
+      color:#3b556d;
+    }
+
+    .section{
+      margin-top:25px;
+    }
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--primary);
+      font-size:1rem;
+      margin:0 0 13px;
+      letter-spacing:.02em;
+    }
+    .section-title:after{
+      content:"";
+      height:1px;
+      background:var(--line);
+      flex:1;
+    }
+
+    .competency-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px 18px;
+    }
+    .competency{
+      border-left:3px solid var(--accent);
+      padding:8px 10px;
+      background:linear-gradient(90deg,var(--soft),transparent);
+      border-radius:0 10px 10px 0;
+      font-size:.86rem;
+      font-weight:700;
+      color:#31506a;
+    }
+
+    .exp-card{
+      padding:13px 0 15px;
+      border-bottom:1px dashed var(--line);
+    }
+    .exp-card:last-child{border-bottom:none}
+    .exp-top{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:flex-start;
+      margin-bottom:4px;
+    }
+    .exp-title{
+      font-weight:850;
+      color:var(--primary);
+      font-size:.94rem;
+    }
+    .exp-meta{
+      font-size:.78rem;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .exp-text{
+      font-size:.86rem;
+      line-height:1.62;
+      color:#466179;
+      margin:5px 0 0;
+    }
+
+    .footer-note{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:.74rem;
+      text-align:right;
+    }
+
+    .hint{
+      max-width:1180px;
+      margin:0 auto 30px;
+      padding:0 18px;
+      color:#698198;
+      font-size:.82rem;
+    }
+
+    @media (max-width:860px){
+      .resume{grid-template-columns:1fr}
+      .sidebar{padding:32px 28px}
+      .main{padding:32px 28px}
+      .competency-grid{grid-template-columns:1fr}
+      .headline{font-size:1.85rem}
+    }
+
+    @media print{
+      @page{size:A4;margin:0}
+      body{background:#fff}
+      .toolbar,.hint{display:none!important}
+      .page{margin:0;padding:0;max-width:none}
+      .resume{
+        width:210mm;
+        min-height:297mm;
+        border-radius:0;
+        box-shadow:none;
+        border:none;
+        grid-template-columns:59mm 1fr;
+      }
+      .sidebar{padding:18mm 8mm}
+      .main{padding:16mm 11mm}
+      .headline{font-size:24px}
+      .summary,.exp-text{font-size:10.5px}
+      .section{margin-top:14px}
+      .section-title{margin-bottom:8px}
+      .exp-card{padding:8px 0}
+      .competency{padding:5px 8px;font-size:9.5px}
+    }
+  </style>
+</head>
+
+<body data-theme="light">
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <div class="brand-mini">MULTILINGUAL EXECUTIVE RESUME</div>
+      <div class="controls">
+        <select id="languageSelect" aria-label="Language">
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+          <option value="sv">Svenska</option>
+          <option value="es">Español</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="ko">한국어</option>
+          <option value="ja">日本語</option>
+          <option value="fr">Français</option>
+        </select>
+        <button id="themeBtn" type="button">淡藍色</button>
+        <button id="printBtn" type="button">列印 / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="page">
+    <article class="resume">
+      <aside class="sidebar">
+        <div class="monogram">JL</div>
+        <h1 class="name" data-i18n="name">Jane Liu</h1>
+        <p class="role" data-i18n="role">Risk & Operations Executive | Credit, Fraud & Collections | Consumer Finance & FinTech</p>
+
+        <section class="side-section">
+          <h3 data-i18n="contactTitle">CONTACT</h3>
+          <div class="contact-item">Taipei, Taiwan</div>
+          <div class="contact-item">Email: yourname@email.com</div>
+          <div class="contact-item">LinkedIn: linkedin.com/in/yourname</div>
+        </section>
+
+        <section class="side-section">
+          <h3 data-i18n="expertiseTitle">EXPERTISE</h3>
+          <div class="chips">
+            <span class="chip" data-i18n="skill1">Credit Risk</span>
+            <span class="chip" data-i18n="skill2">Credit Approval</span>
+            <span class="chip" data-i18n="skill3">Early Warning</span>
+            <span class="chip" data-i18n="skill4">Fraud Risk</span>
+            <span class="chip" data-i18n="skill5">Post-Loan</span>
+            <span class="chip" data-i18n="skill6">Collections</span>
+            <span class="chip" data-i18n="skill7">Recovery</span>
+            <span class="chip" data-i18n="skill8">Outsourcing</span>
+          </div>
+        </section>
+
+        <section class="side-section">
+          <h3 data-i18n="languageTitle">LANGUAGES</h3>
+          <div class="lang-item">中文 / Chinese</div>
+          <div class="lang-item">English</div>
+          <div class="lang-item" data-i18n="languageNote">Other language versions available on this page.</div>
+        </section>
+      </aside>
+
+      <section class="main">
+        <header class="hero">
+          <div class="eyebrow" data-i18n="eyebrow">EXECUTIVE PROFILE</div>
+          <h2 class="headline" data-i18n="headline">Retail Credit Risk & Consumer Banking Leader</h2>
+          <p class="summary" data-i18n="summary"></p>
+        </header>
+
+        <section class="section">
+          <h3 class="section-title" data-i18n="coreTitle">Core Leadership Strengths</h3>
+          <div class="competency-grid">
+            <div class="competency" data-i18n="core1">Full credit lifecycle leadership</div>
+            <div class="competency" data-i18n="core2">Portfolio quality & risk governance</div>
+            <div class="competency" data-i18n="core3">Fraud prevention & early warning</div>
+            <div class="competency" data-i18n="core4">Collections & recovery strategy</div>
+            <div class="competency" data-i18n="core5">Operational transformation</div>
+            <div class="competency" data-i18n="core6">High-performing team leadership</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3 class="section-title" data-i18n="experienceTitle">Selected Professional Experience</h3>
+
+          <div class="exp-card">
+            <div class="exp-top">
+              <div class="exp-title" data-i18n="exp1Title">Retail Credit Risk & Consumer Banking Leadership</div>
+              <div class="exp-meta" data-i18n="exp1Meta">20+ years</div>
+            </div>
+            <p class="exp-text" data-i18n="exp1Text"></p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-top">
+              <div class="exp-title" data-i18n="exp2Title">Credit Operations, Collections & Recovery</div>
+              <div class="exp-meta" data-i18n="exp2Meta">Consumer Banking</div>
+            </div>
+            <p class="exp-text" data-i18n="exp2Text"></p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-top">
+              <div class="exp-title" data-i18n="exp3Title">People Leadership & Cross-functional Transformation</div>
+              <div class="exp-meta" data-i18n="exp3Meta">Leadership</div>
+            </div>
+            <p class="exp-text" data-i18n="exp3Text"></p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3 class="section-title" data-i18n="targetTitle">Target Roles</h3>
+          <div class="chips" style="gap:8px">
+            <span class="competency" data-i18n="target1">Head of Risk</span>
+            <span class="competency" data-i18n="target2">Credit Risk Director</span>
+            <span class="competency" data-i18n="target3">Fraud Risk Head</span>
+            <span class="competency" data-i18n="target4">Risk Operations Head</span>
+            <span class="competency" data-i18n="target5">FinTech / Payments Risk</span>
+            <span class="competency" data-i18n="target6">Risk Advisory Director</span>
+          </div>
+        </section>
+
+        <div class="footer-note" data-i18n="footer">One-page multilingual executive resume · Static HTML/CSS/JavaScript</div>
+      </section>
+    </article>
+  </main>
+
+  <div class="hint" data-i18n="hint">
+    Tip: Replace the placeholder email and LinkedIn URL with your own information, then use “Print / PDF” to export an A4 PDF.
+  </div>
+
+<script>
+const translations = {
+  zh:{
+    name:"Jane Liu",
+    role:"風險與營運高階主管｜信用風險・詐欺防制・催收回收｜消費金融・FinTech",
+    contactTitle:"聯絡方式",
+    expertiseTitle:"專業領域",
+    languageTitle:"語言",
+    languageNote:"本頁可直接切換其他語言版本。",
+    eyebrow:"高階主管簡介",
+    headline:"零售信用風險與消費金融管理主管",
+    summary:"具備超過 20 年零售信用風險管理與消費金融經驗，專業橫跨完整信用生命週期，包括信用風險、授信審查、詐欺風險、預警管理、貸後管理、催收與債權回收，以及委外管理。擅長在業務成長、風險控管、營運效率、客戶體驗與法令遵循之間取得平衡，並透過跨部門協作推動流程與制度轉型。",
+    coreTitle:"核心領導能力",
+    core1:"完整信用生命週期管理",
+    core2:"資產品質與風險治理",
+    core3:"詐欺防制與預警管理",
+    core4:"催收與債權回收策略",
+    core5:"營運流程與制度轉型",
+    core6:"高績效團隊建立與領導",
+    experienceTitle:"代表性專業經驗",
+    exp1Title:"零售信用風險與消費金融管理",
+    exp1Meta:"20+ 年",
+    exp1Text:"涵蓋 Early Warning、Fraud Risk、Credit Risk、Credit Approval、Post-Loan Management、Collections & Recovery 等領域，具備從前端授信到貸後與逾期管理的完整實務經驗。",
+    exp2Title:"信用營運、催收回收與委外管理",
+    exp2Meta:"消費金融",
+    exp2Text:"具備信用營運、催收與債權回收、外包廠商管理及貸後管理的實績，持續強化作業效率、風險控管、服務品質與法令遵循。",
+    exp3Title:"人才領導與跨部門轉型",
+    exp3Meta:"管理職",
+    exp3Text:"擅長建立、培育與激勵高績效團隊，並整合風險、業務、營運、法遵、法務與資訊科技團隊，推動流程改善、制度落地與組織能力提升。",
+    targetTitle:"目標職務",
+    target1:"風險管理主管",
+    target2:"信用風險總監",
+    target3:"詐欺風險主管",
+    target4:"風險營運主管",
+    target5:"FinTech／支付風險",
+    target6:"風險顧問總監",
+    skill1:"信用風險",skill2:"授信審查",skill3:"預警管理",skill4:"詐欺風險",
+    skill5:"貸後管理",skill6:"催收管理",skill7:"債權回收",skill8:"委外管理",
+    footer:"一頁式多國語言高階履歷 · 靜態 HTML / CSS / JavaScript",
+    hint:"提示：請將 Email 與 LinkedIn 網址換成你的正式資料，再使用「列印 / PDF」輸出 A4 PDF。"
+  },
+
+  en:{
+    name:"Jane Liu",
+    role:"Risk & Operations Executive | Credit, Fraud & Collections | Consumer Finance & FinTech",
+    contactTitle:"CONTACT", expertiseTitle:"EXPERTISE", languageTitle:"LANGUAGES",
+    languageNote:"Other language versions are available on this page.",
+    eyebrow:"EXECUTIVE PROFILE",
+    headline:"Retail Credit Risk & Consumer Banking Leader",
+    summary:"Senior Retail Credit Risk and Consumer Banking leader with over 20 years of experience across the full credit lifecycle, including Credit Risk, Credit Approval, Fraud Risk Management, Early Warning, Post-Loan Management, Collections & Recovery, and Outsourcing Management. Proven ability to balance business growth, prudent risk control, operational efficiency, customer experience, and regulatory requirements while driving cross-functional transformation.",
+    coreTitle:"Core Leadership Strengths",
+    core1:"Full credit lifecycle leadership",core2:"Portfolio quality & risk governance",
+    core3:"Fraud prevention & early warning",core4:"Collections & recovery strategy",
+    core5:"Operational transformation",core6:"High-performing team leadership",
+    experienceTitle:"Selected Professional Experience",
+    exp1Title:"Retail Credit Risk & Consumer Banking Leadership",exp1Meta:"20+ years",
+    exp1Text:"Extensive hands-on leadership experience spanning Early Warning, Fraud Risk, Credit Risk, Credit Approval, Post-Loan Management, Collections and Recovery, covering the full journey from origination to post-loan and delinquency management.",
+    exp2Title:"Credit Operations, Collections & Recovery",exp2Meta:"Consumer Banking",
+    exp2Text:"Proven track record in credit operations, collections and recovery, outsourcing management, and post-loan management, with a strong focus on efficiency, risk control, service quality, and compliance.",
+    exp3Title:"People Leadership & Cross-functional Transformation",exp3Meta:"Leadership",
+    exp3Text:"Demonstrated success in building, developing, and motivating high-performing teams while partnering with Risk, Business, Operations, Compliance, Legal, and Technology functions to deliver sustainable process and governance improvements.",
+    targetTitle:"Target Roles",
+    target1:"Head of Risk",target2:"Credit Risk Director",target3:"Fraud Risk Head",
+    target4:"Risk Operations Head",target5:"FinTech / Payments Risk",target6:"Risk Advisory Director",
+    skill1:"Credit Risk",skill2:"Credit Approval",skill3:"Early Warning",skill4:"Fraud Risk",
+    skill5:"Post-Loan",skill6:"Collections",skill7:"Recovery",skill8:"Outsourcing",
+    footer:"One-page multilingual executive resume · Static HTML/CSS/JavaScript",
+    hint:"Tip: Replace the placeholder email and LinkedIn URL with your own information, then use “Print / PDF” to export an A4 PDF."
+  },
+
+  sv:{
+    name:"Jane Liu",
+    role:"Chef inom risk & verksamhet | Kredit, bedrägeri & inkasso | Konsumentfinansiering & FinTech",
+    contactTitle:"KONTAKT", expertiseTitle:"KOMPETENS", languageTitle:"SPRÅK",
+    languageNote:"Fler språkversioner finns direkt på denna sida.",
+    eyebrow:"LEDARPROFIL",
+    headline:"Ledare inom kreditrisk och konsumentbank",
+    summary:"Senior ledare inom kreditrisk och konsumentbank med över 20 års erfarenhet av hela kreditlivscykeln, inklusive kreditrisk, kreditprövning, bedrägeririsk, tidiga varningssystem, efterbevakning, inkasso och återvinning samt outsourcing. Dokumenterad förmåga att balansera affärstillväxt, sund riskkontroll, operativ effektivitet, kundupplevelse och regulatoriska krav.",
+    coreTitle:"Centrala ledarskapsstyrkor",
+    core1:"Ledarskap genom hela kreditlivscykeln",core2:"Portföljkvalitet & riskstyrning",
+    core3:"Bedrägeriförebyggande & tidig varning",core4:"Inkasso- & återvinningsstrategi",
+    core5:"Operativ transformation",core6:"Ledning av högpresterande team",
+    experienceTitle:"Utvald yrkeserfarenhet",
+    exp1Title:"Ledarskap inom kreditrisk & konsumentbank",exp1Meta:"20+ år",
+    exp1Text:"Omfattande erfarenhet inom tidiga varningar, bedrägeririsk, kreditrisk, kreditprövning, efterbevakning, inkasso och återvinning genom hela kundens kreditresa.",
+    exp2Title:"Kreditverksamhet, inkasso & återvinning",exp2Meta:"Konsumentbank",
+    exp2Text:"Dokumenterad erfarenhet av kreditverksamhet, inkasso och återvinning, outsourcing samt efterbevakning med fokus på effektivitet, riskkontroll, kvalitet och regelefterlevnad.",
+    exp3Title:"Ledarskap & tvärfunktionell transformation",exp3Meta:"Ledarskap",
+    exp3Text:"Framgångsrik i att bygga, utveckla och motivera högpresterande team samt driva förbättringar tillsammans med risk, affär, drift, compliance, juridik och teknik.",
+    targetTitle:"Målroller",
+    target1:"Riskchef",target2:"Direktör kreditrisk",target3:"Chef bedrägeririsk",
+    target4:"Chef riskverksamhet",target5:"FinTech / betalningsrisk",target6:"Direktör riskrådgivning",
+    skill1:"Kreditrisk",skill2:"Kreditprövning",skill3:"Tidig varning",skill4:"Bedrägeririsk",
+    skill5:"Efterbevakning",skill6:"Inkasso",skill7:"Återvinning",skill8:"Outsourcing",
+    footer:"Ensidigt flerspråkigt chefs-CV · Statisk HTML/CSS/JavaScript",
+    hint:"Tips: Byt ut e-post och LinkedIn mot dina riktiga uppgifter och använd sedan ”Skriv ut / PDF” för A4-export."
+  },
+
+  es:{
+    name:"Jane Liu",
+    role:"Ejecutiva de Riesgos y Operaciones | Crédito, Fraude y Cobranza | Finanzas de Consumo y FinTech",
+    contactTitle:"CONTACTO", expertiseTitle:"ESPECIALIDADES", languageTitle:"IDIOMAS",
+    languageNote:"Esta página permite cambiar directamente a otros idiomas.",
+    eyebrow:"PERFIL EJECUTIVO",
+    headline:"Líder de Riesgo de Crédito Minorista y Banca de Consumo",
+    summary:"Ejecutiva senior de riesgo de crédito minorista y banca de consumo con más de 20 años de experiencia a lo largo de todo el ciclo de crédito, incluyendo riesgo de crédito, aprobación, prevención de fraude, alertas tempranas, gestión post-préstamo, cobranza y recuperación, así como gestión de terceros. Sólida capacidad para equilibrar crecimiento, control prudente del riesgo, eficiencia operativa, experiencia del cliente y cumplimiento regulatorio.",
+    coreTitle:"Fortalezas de Liderazgo",
+    core1:"Gestión integral del ciclo de crédito",core2:"Calidad de cartera y gobierno de riesgos",
+    core3:"Prevención de fraude y alertas tempranas",core4:"Estrategia de cobranza y recuperación",
+    core5:"Transformación operativa",core6:"Liderazgo de equipos de alto desempeño",
+    experienceTitle:"Experiencia Profesional Destacada",
+    exp1Title:"Riesgo de Crédito Minorista y Banca de Consumo",exp1Meta:"20+ años",
+    exp1Text:"Amplia experiencia práctica en alertas tempranas, riesgo de fraude, riesgo de crédito, aprobación crediticia, gestión post-préstamo, cobranza y recuperación a lo largo de todo el ciclo del cliente.",
+    exp2Title:"Operaciones de Crédito, Cobranza y Recuperación",exp2Meta:"Banca de Consumo",
+    exp2Text:"Trayectoria comprobada en operaciones de crédito, cobranza y recuperación, gestión de outsourcing y administración post-préstamo, con foco en eficiencia, control, calidad y cumplimiento.",
+    exp3Title:"Liderazgo y Transformación Multifuncional",exp3Meta:"Liderazgo",
+    exp3Text:"Experiencia demostrada en crear y motivar equipos de alto desempeño y colaborar con Riesgo, Negocio, Operaciones, Cumplimiento, Legal y Tecnología para impulsar mejoras sostenibles.",
+    targetTitle:"Roles Objetivo",
+    target1:"Head of Risk",target2:"Director de Riesgo de Crédito",target3:"Head of Fraud Risk",
+    target4:"Head of Risk Operations",target5:"Riesgo FinTech / Pagos",target6:"Director de Consultoría de Riesgos",
+    skill1:"Riesgo de Crédito",skill2:"Aprobación Crediticia",skill3:"Alertas Tempranas",skill4:"Riesgo de Fraude",
+    skill5:"Gestión Post-Préstamo",skill6:"Cobranza",skill7:"Recuperación",skill8:"Outsourcing",
+    footer:"CV ejecutivo multilingüe de una página · HTML/CSS/JavaScript estático",
+    hint:"Consejo: sustituye el correo y LinkedIn de ejemplo por tus datos y usa “Imprimir / PDF” para exportar en A4."
+  },
+
+  vi:{
+    name:"Jane Liu",
+    role:"Lãnh đạo Rủi ro & Vận hành | Tín dụng, Gian lận & Thu hồi nợ | Tài chính tiêu dùng & FinTech",
+    contactTitle:"LIÊN HỆ", expertiseTitle:"CHUYÊN MÔN", languageTitle:"NGÔN NGỮ",
+    languageNote:"Có thể chuyển đổi trực tiếp sang các ngôn ngữ khác trên trang này.",
+    eyebrow:"HỒ SƠ LÃNH ĐẠO",
+    headline:"Lãnh đạo Rủi ro Tín dụng Bán lẻ & Ngân hàng Tiêu dùng",
+    summary:"Lãnh đạo cấp cao trong lĩnh vực rủi ro tín dụng bán lẻ và ngân hàng tiêu dùng với hơn 20 năm kinh nghiệm xuyên suốt toàn bộ vòng đời tín dụng, bao gồm rủi ro tín dụng, phê duyệt tín dụng, rủi ro gian lận, cảnh báo sớm, quản lý sau vay, thu hồi nợ và quản lý thuê ngoài. Có năng lực cân bằng tăng trưởng kinh doanh, kiểm soát rủi ro, hiệu quả vận hành, trải nghiệm khách hàng và tuân thủ.",
+    coreTitle:"Năng lực Lãnh đạo Cốt lõi",
+    core1:"Quản lý toàn bộ vòng đời tín dụng",core2:"Chất lượng danh mục & quản trị rủi ro",
+    core3:"Phòng chống gian lận & cảnh báo sớm",core4:"Chiến lược thu hồi nợ",
+    core5:"Chuyển đổi vận hành",core6:"Lãnh đạo đội ngũ hiệu suất cao",
+    experienceTitle:"Kinh nghiệm Tiêu biểu",
+    exp1Title:"Rủi ro Tín dụng Bán lẻ & Ngân hàng Tiêu dùng",exp1Meta:"20+ năm",
+    exp1Text:"Kinh nghiệm sâu rộng về cảnh báo sớm, rủi ro gian lận, rủi ro tín dụng, phê duyệt, quản lý sau vay, thu hồi và xử lý nợ xuyên suốt hành trình tín dụng.",
+    exp2Title:"Vận hành Tín dụng, Thu hồi & Xử lý Nợ",exp2Meta:"Ngân hàng Tiêu dùng",
+    exp2Text:"Thành tích vững chắc trong vận hành tín dụng, thu hồi nợ, quản lý thuê ngoài và quản lý sau vay, tập trung vào hiệu quả, kiểm soát rủi ro, chất lượng dịch vụ và tuân thủ.",
+    exp3Title:"Lãnh đạo Nhân sự & Chuyển đổi Liên phòng ban",exp3Meta:"Lãnh đạo",
+    exp3Text:"Có kinh nghiệm xây dựng, phát triển và tạo động lực cho các đội ngũ hiệu suất cao, đồng thời phối hợp cùng Rủi ro, Kinh doanh, Vận hành, Tuân thủ, Pháp lý và Công nghệ.",
+    targetTitle:"Vị trí Mục tiêu",
+    target1:"Giám đốc Rủi ro",target2:"Giám đốc Rủi ro Tín dụng",target3:"Trưởng bộ phận Rủi ro Gian lận",
+    target4:"Trưởng bộ phận Vận hành Rủi ro",target5:"Rủi ro FinTech / Thanh toán",target6:"Giám đốc Tư vấn Rủi ro",
+    skill1:"Rủi ro Tín dụng",skill2:"Phê duyệt Tín dụng",skill3:"Cảnh báo Sớm",skill4:"Rủi ro Gian lận",
+    skill5:"Quản lý Sau vay",skill6:"Thu hồi Nợ",skill7:"Xử lý Nợ",skill8:"Thuê ngoài",
+    footer:"CV lãnh đạo đa ngôn ngữ một trang · HTML/CSS/JavaScript tĩnh",
+    hint:"Mẹo: thay email và LinkedIn mẫu bằng thông tin thật của bạn, sau đó dùng “In / PDF” để xuất A4."
+  },
+
+  ko:{
+    name:"Jane Liu",
+    role:"리스크·운영 임원 | 신용·사기·채권회수 | 소비자금융·핀테크",
+    contactTitle:"연락처", expertiseTitle:"전문 분야", languageTitle:"언어",
+    languageNote:"이 페이지에서 다른 언어 버전으로 바로 전환할 수 있습니다.",
+    eyebrow:"EXECUTIVE PROFILE",
+    headline:"리테일 신용리스크 및 소비자금융 리더",
+    summary:"20년 이상의 리테일 신용리스크 및 소비자금융 경력을 보유한 시니어 리더로서 신용리스크, 신용승인, 사기리스크, 조기경보, 사후관리, 채권관리 및 회수, 아웃소싱 관리 등 신용 라이프사이클 전반을 경험했습니다. 사업 성장, 건전한 리스크 관리, 운영 효율성, 고객 경험 및 규제 준수 간의 균형을 중시하며 조직 간 협업과 혁신을 주도합니다.",
+    coreTitle:"핵심 리더십 역량",
+    core1:"신용 라이프사이클 전반 관리",core2:"포트폴리오 품질 및 리스크 거버넌스",
+    core3:"사기 예방 및 조기경보",core4:"채권관리 및 회수 전략",
+    core5:"운영 혁신",core6:"고성과 팀 구축 및 리더십",
+    experienceTitle:"주요 경력",
+    exp1Title:"리테일 신용리스크 및 소비자금융 리더십",exp1Meta:"20년+",
+    exp1Text:"조기경보, 사기리스크, 신용리스크, 신용승인, 사후관리, 채권관리 및 회수에 이르는 전 영역에서 폭넓은 실무 및 리더십 경험을 보유하고 있습니다.",
+    exp2Title:"신용 운영, 채권관리 및 회수",exp2Meta:"소비자금융",
+    exp2Text:"신용 운영, 채권관리 및 회수, 아웃소싱 및 사후관리 분야에서 효율성, 리스크 통제, 서비스 품질 및 규제 준수를 강화해 온 실적을 보유하고 있습니다.",
+    exp3Title:"인재 리더십 및 부서 간 혁신",exp3Meta:"리더십",
+    exp3Text:"고성과 팀을 구축·육성·동기부여하고 리스크, 영업, 운영, 컴플라이언스, 법무, 기술 조직과 협업하여 지속 가능한 개선을 추진해 왔습니다.",
+    targetTitle:"희망 직무",
+    target1:"리스크 총괄",target2:"신용리스크 디렉터",target3:"사기리스크 총괄",
+    target4:"리스크 운영 총괄",target5:"핀테크 / 결제 리스크",target6:"리스크 자문 디렉터",
+    skill1:"신용리스크",skill2:"신용승인",skill3:"조기경보",skill4:"사기리스크",
+    skill5:"사후관리",skill6:"채권관리",skill7:"채권회수",skill8:"아웃소싱",
+    footer:"1페이지 다국어 임원 이력서 · 정적 HTML/CSS/JavaScript",
+    hint:"팁: 예시 이메일과 LinkedIn 주소를 실제 정보로 바꾼 뒤 “인쇄 / PDF”로 A4 PDF를 저장하세요."
+  },
+
+  ja:{
+    name:"Jane Liu",
+    role:"リスク・オペレーション責任者｜与信・不正・債権回収｜コンシューマーファイナンス・FinTech",
+    contactTitle:"連絡先", expertiseTitle:"専門分野", languageTitle:"言語",
+    languageNote:"このページから他言語版へ直接切り替えられます。",
+    eyebrow:"エグゼクティブプロフィール",
+    headline:"リテール信用リスク・コンシューマーバンキング リーダー",
+    summary:"20年以上にわたり、リテール信用リスクおよびコンシューマーバンキング領域で経験を積んだシニアリーダー。信用リスク、与信審査、不正リスク、早期警戒、貸出後管理、債権管理・回収、アウトソーシング管理など、信用ライフサイクル全体をカバー。事業成長、健全なリスク管理、業務効率、顧客体験、規制遵守のバランスを取りながら、部門横断の変革を推進してきました。",
+    coreTitle:"主要リーダーシップ能力",
+    core1:"信用ライフサイクル全体の管理",core2:"ポートフォリオ品質・リスクガバナンス",
+    core3:"不正防止・早期警戒",core4:"債権管理・回収戦略",
+    core5:"オペレーション変革",core6:"高業績チームの構築・育成",
+    experienceTitle:"主な職務経験",
+    exp1Title:"リテール信用リスク・コンシューマーバンキング",exp1Meta:"20年以上",
+    exp1Text:"早期警戒、不正リスク、信用リスク、与信審査、貸出後管理、債権管理・回収など、案件受付から延滞管理まで幅広い実務・マネジメント経験を有します。",
+    exp2Title:"クレジットオペレーション・債権管理・回収",exp2Meta:"コンシューマーバンキング",
+    exp2Text:"クレジット業務、債権管理・回収、アウトソーシング、貸出後管理において、効率性、リスク統制、サービス品質、コンプライアンスを継続的に強化してきました。",
+    exp3Title:"人材マネジメント・部門横断変革",exp3Meta:"Leadership",
+    exp3Text:"高業績チームの構築・育成・動機付けに加え、リスク、営業、オペレーション、コンプライアンス、法務、テクノロジー部門を横断して持続的な改善を推進。",
+    targetTitle:"希望ポジション",
+    target1:"Head of Risk",target2:"信用リスクディレクター",target3:"不正リスク責任者",
+    target4:"リスクオペレーション責任者",target5:"FinTech / 決済リスク",target6:"リスクアドバイザリー・ディレクター",
+    skill1:"信用リスク",skill2:"与信審査",skill3:"早期警戒",skill4:"不正リスク",
+    skill5:"貸出後管理",skill6:"債権管理",skill7:"債権回収",skill8:"アウトソーシング",
+    footer:"1ページ多言語エグゼクティブ履歴書 · 静的HTML/CSS/JavaScript",
+    hint:"ヒント：メールアドレスとLinkedIn URLを実際の情報に置き換え、「印刷 / PDF」からA4 PDFとして保存してください。"
+  },
+
+  fr:{
+    name:"Jane Liu",
+    role:"Dirigeante Risques & Opérations | Crédit, Fraude & Recouvrement | Finance à la consommation & FinTech",
+    contactTitle:"CONTACT", expertiseTitle:"EXPERTISE", languageTitle:"LANGUES",
+    languageNote:"Les autres versions linguistiques sont disponibles directement sur cette page.",
+    eyebrow:"PROFIL EXÉCUTIF",
+    headline:"Dirigeante en Risque de Crédit Retail & Banque de Détail",
+    summary:"Dirigeante senior en risque de crédit retail et banque de détail avec plus de 20 ans d’expérience sur l’ensemble du cycle de crédit : risque de crédit, décision de crédit, gestion de la fraude, dispositifs d’alerte précoce, gestion post-octroi, recouvrement et récupération, ainsi que gestion de l’externalisation. Capacité éprouvée à concilier croissance, maîtrise des risques, efficacité opérationnelle, expérience client et conformité réglementaire.",
+    coreTitle:"Principales Forces de Leadership",
+    core1:"Pilotage du cycle de crédit complet",core2:"Qualité de portefeuille & gouvernance des risques",
+    core3:"Prévention de la fraude & alerte précoce",core4:"Stratégie de recouvrement",
+    core5:"Transformation opérationnelle",core6:"Leadership d’équipes performantes",
+    experienceTitle:"Expériences Professionnelles Clés",
+    exp1Title:"Risque de Crédit Retail & Banque de Détail",exp1Meta:"20+ ans",
+    exp1Text:"Expérience approfondie en alerte précoce, risque de fraude, risque de crédit, décision de crédit, gestion post-octroi, recouvrement et récupération sur l’ensemble du parcours client.",
+    exp2Title:"Opérations de Crédit, Recouvrement & Récupération",exp2Meta:"Banque de Détail",
+    exp2Text:"Parcours confirmé dans les opérations de crédit, le recouvrement, la gestion de prestataires et le suivi post-octroi, avec un fort accent sur l’efficacité, le contrôle, la qualité et la conformité.",
+    exp3Title:"Leadership & Transformation Transverse",exp3Meta:"Leadership",
+    exp3Text:"Succès démontré dans la création, le développement et la motivation d’équipes performantes, en partenariat avec les fonctions Risques, Métiers, Opérations, Conformité, Juridique et Technologie.",
+    targetTitle:"Fonctions Ciblées",
+    target1:"Head of Risk",target2:"Directeur Risque de Crédit",target3:"Responsable Risque de Fraude",
+    target4:"Responsable Risk Operations",target5:"Risque FinTech / Paiements",target6:"Directeur Risk Advisory",
+    skill1:"Risque de Crédit",skill2:"Décision de Crédit",skill3:"Alerte Précoce",skill4:"Risque de Fraude",
+    skill5:"Gestion Post-Octroi",skill6:"Recouvrement",skill7:"Récupération",skill8:"Externalisation",
+    footer:"CV exécutif multilingue d’une page · HTML/CSS/JavaScript statique",
+    hint:"Astuce : remplacez l’e-mail et le lien LinkedIn d’exemple par vos coordonnées, puis utilisez « Imprimer / PDF » pour exporter en A4."
+  }
+};
+
+const languageSelect = document.getElementById("languageSelect");
+const themeBtn = document.getElementById("themeBtn");
+const printBtn = document.getElementById("printBtn");
+
+function applyLanguage(lang){
+  const dict = translations[lang] || translations.en;
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(dict[key] !== undefined) el.textContent = dict[key];
+  });
+
+  const buttonLabels = {
+    zh:["淡藍色","列印 / PDF"], en:["Light Blue","Print / PDF"],
+    sv:["Ljusblå","Skriv ut / PDF"], es:["Azul claro","Imprimir / PDF"],
+    vi:["Xanh nhạt","In / PDF"], ko:["라이트 블루","인쇄 / PDF"],
+    ja:["ライトブルー","印刷 / PDF"], fr:["Bleu clair","Imprimer / PDF"]
+  };
+  const labels = buttonLabels[lang] || buttonLabels.en;
+  themeBtn.textContent = document.body.dataset.theme === "deep" ? 
+    (lang==="zh" ? "深藍色" : "Deep Blue") : labels[0];
+  printBtn.textContent = labels[1];
+  localStorage.setItem("resumeLang",lang);
+}
+
+languageSelect.addEventListener("change", e=>applyLanguage(e.target.value));
+
+themeBtn.addEventListener("click", ()=>{
+  const isDeep = document.body.dataset.theme === "deep";
+  document.body.dataset.theme = isDeep ? "light" : "deep";
+  localStorage.setItem("resumeTheme",document.body.dataset.theme);
+  const lang = languageSelect.value;
+  const lightLabels = {zh:"淡藍色",en:"Light Blue",sv:"Ljusblå",es:"Azul claro",vi:"Xanh nhạt",ko:"라이트 블루",ja:"ライトブルー",fr:"Bleu clair"};
+  const deepLabels  = {zh:"深藍色",en:"Deep Blue",sv:"Mörkblå",es:"Azul profundo",vi:"Xanh đậm",ko:"딥 블루",ja:"ディープブルー",fr:"Bleu profond"};
+  themeBtn.textContent = isDeep ? lightLabels[lang] : deepLabels[lang];
+});
+
+printBtn.addEventListener("click", ()=>window.print());
+
+const savedLang = localStorage.getItem("resumeLang") || "zh";
+const savedTheme = localStorage.getItem("resumeTheme") || "light";
+document.body.dataset.theme = savedTheme;
+languageSelect.value = savedLang;
+applyLanguage(savedLang);
+</script>
+</body>
+</html>
